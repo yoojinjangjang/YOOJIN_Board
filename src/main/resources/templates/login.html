@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <title>login 페이지</title>
+</head>
+<body>
+<div class="container">
+    <div class="t-c">
+        <h2>로그인</h2>
+    </div>
+    <form action="/login" method="POST">
+        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+    <div>
+        <label for="id">아이디(username)</label>
+        <div>
+            <input type="text" id="id" class="form-control" placeholder="id를 입력하세요." required name="username" />
+        </div>
+    </div>
+    <div>
+        <label for="password">비밀번호(password)</label>
+        <div>
+            <input type="password" id="password" class="form-control" required name="password" />
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">로그인</button>
+    <button class="btn"><a href="/">취소</a></button>
+    </form>
+</div>
+
+
+
+</body>
+</html>

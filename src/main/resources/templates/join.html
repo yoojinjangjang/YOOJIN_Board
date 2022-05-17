@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript" src="js/ex.js"></script>
+    <title>Join 페이지</title>
+</head>
+<body>
+<div class="container">
+    <div class="t-c">
+        <h2>회원가입</h2>
+    </div>
+    <a href="/">메인으로</a>
+    <div>
+        <h5>회원정보</h5>
+        <form class="needs-validation" novalidate th:action="@{/join}" method="post">
+            <div>
+                <label for="id">아이디(username)</label>
+                <div>
+                    <input type="text" id="id" class="form-control" placeholder="id를 입력하세요." required name="id" />
+                    <div class="invalid-feedback" style="width: 100%;">Your username is required.</div>
+                </div>
+            </div>
+            <div>
+                <label for="name">이름(realname)</label>
+                <div>
+                    <input type="text" id="name" class="form-control" placeholder="Your Name" required name="name" />
+                    <div class="invalid-feedback" style="width: 100%;">Your real_name is required.</div>
+                </div>
+            </div>
+            <div>
+                <label for="password">비밀번호(password)</label>
+                <div>
+                    <input type="password" id="password" class="form-control" required name="password" />
+                </div>
+            </div>
+            <div>
+                <label for="year">생년월일(Birth)</label>
+                <div class="margin">
+                    <select name="yy" id="year"></select>년
+                    <select name="mm" id="month"></select>월
+                    <select name="dd" id="day"></select>일
+                </div>
+            </div>
+
+
+            <button class="btn btn-primary" type="submit">가입하기</button>
+            <button class="btn"><a href="/">취소</a></button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
