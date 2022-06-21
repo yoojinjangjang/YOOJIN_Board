@@ -27,10 +27,11 @@ public class User extends BaseTimeEntity implements UserDetails {
 
     private String role;
 
-    @OneToMany
-    @JoinColumn(name="board_id")
-    @ToString.Exclude
+    @OneToMany(mappedBy = "user")
     private List<Board> boards;
+
+    @OneToMany(mappedBy = "user")
+    private List<Comment> comments;
 
     @Builder
     public User(String userId, String name, String password, String birth){

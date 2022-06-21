@@ -1,5 +1,6 @@
 package com.example.board.entity;
 
+import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,6 +23,13 @@ public class Board extends BaseTimeEntity {
 
     private String content;
 
+    @OneToMany(mappedBy = "board")
+    private List<Comment> comments;
+
+    public void update(String title,String content){
+        this.title = title;
+        this.content = content;
+    }
     @Override
     public String toString() {
         return "Board{" +
@@ -38,4 +46,6 @@ public class Board extends BaseTimeEntity {
         this.title = title;
         this.content = content;
     }
+
+
 }

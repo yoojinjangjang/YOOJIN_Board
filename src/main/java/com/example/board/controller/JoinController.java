@@ -27,6 +27,7 @@ public class JoinController {
 
     private final UserServiceImpl userService;
     private final BoardService boardService;
+
     @PostMapping("/join")
     public String join(Model model,UserDto user){
         model.addAttribute("user",user);
