@@ -18,7 +18,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final UserServiceImpl userService;
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/favicon.ico","/css/**", "/js/**", "/error");
+        web.ignoring().antMatchers("/css/**", "/js/**", "/error");
     }
 
     @Override
@@ -26,6 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/","/join","/login").permitAll()
+                .antMatchers("/board","/logout").authenticated()
                 .anyRequest()
                 .authenticated()
         .and()

@@ -1,6 +1,9 @@
 package com.example.board.controller;
 
+import com.example.board.dto.BoardDto;
 import com.example.board.dto.UserDto;
+import com.example.board.entity.Board;
+import com.example.board.service.BoardService;
 import com.example.board.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -14,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -21,10 +26,9 @@ import java.util.Map;
 public class JoinController {
 
     private final UserServiceImpl userService;
-
+    private final BoardService boardService;
     @PostMapping("/join")
     public String join(Model model,UserDto user){
-        System.out.println(user.toString());
         model.addAttribute("user",user);
         userService.save(user);
 
@@ -38,8 +42,12 @@ public class JoinController {
     public String loginPage(){
         return "/login";
     }
+
+
     @GetMapping("/")
-    public String main(){
+    public String main(Model model){
+        List<BoardDto> boardList = boardService.getBoardLists();
+        model.addAttribute("boards",boardList);
         return "/main";
     }
 

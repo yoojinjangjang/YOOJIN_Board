@@ -1,5 +1,35 @@
 @charset "UTF-8";
 
+#header {
+    height: 75px;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.board{
+    float:left;
+    color:white;
+}
+.menu-bar{
+    float: right;
+}
+.menu{
+    color:white;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 3px;
+    font-size: 17px;
+    text-decoration: none;
+}
+.menu:hover{
+    color:rgb(255,255,255,0.6);
+    text-decoration: none;
+}
+
 .text-red {
     color:red;
 }
@@ -22,5 +52,5 @@
     margin: 5px;
 }
 .margin{
-    margin: 5px;
+    margin: 10px;
 }

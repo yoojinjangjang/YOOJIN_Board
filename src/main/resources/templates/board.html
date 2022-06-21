@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:sec="org.thymeleaf.extras:thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/style.css?f">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+    <title>게시글 등록 페이지</title>
+</head>
+<body>
+<header id="header">
+    <h1 class = "board">YOOJIN Board</h1>
+    <nav class="menu-bar">
+        <span><a sec:authorize="isAuthenticated()" class="menu" th:href="@{/}">게시글 목록</a></span>
+        <span><a sec:authorize="isAuthenticated()" class="menu">내 정보</a></span>
+        <span><a sec:authorize="isAuthenticated()" class="menu" th:href="@{/logout}">로그아웃</a></span>
+
+    </nav>
+</header>
+
+<h1>게시글</h1>
+</body>
+</html>

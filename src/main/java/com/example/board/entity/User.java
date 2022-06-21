@@ -3,16 +3,13 @@ package com.example.board.entity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.*;
+import java.util.*;
 
 @Entity
 @Getter
@@ -30,6 +27,11 @@ public class User extends BaseTimeEntity implements UserDetails {
 
     private String role;
 
+    @OneToMany
+    @JoinColumn(name="board_id")
+    @ToString.Exclude
+    private List<Board> boards;
+
     @Builder
     public User(String userId, String name, String password, String birth){
         this.userId = userId;
@@ -43,7 +45,7 @@ public class User extends BaseTimeEntity implements UserDetails {
     public Collection<? extends GrantedAuthority> getAuthorities() {
         Set<GrantedAuthority> roles = new HashSet<>();
         for(String r: role.split(",")){
-            roles.add(new SimpleGrantedAuthority(role));
+            roles.add(new SimpleGrantedAuthority(r));
         }
         return roles;
     }
